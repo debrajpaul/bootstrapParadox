@@ -17,8 +17,8 @@ func GetItem(product *inventory.Product) gin.HandlerFunc {
 			log.Fatal(err)
 		}
 		defer db.Close()
-		log.Println("name--> ", c.Param("name"))
-		db.Where("Name = ?", c.Param("name")).First(&product)
+		log.Println("itemName--> ", c.Param("itemName"))
+		db.Where("itemName = ?", c.Param("itemName")).First(&product)
 
 		c.JSON(http.StatusOK, product)
 	}

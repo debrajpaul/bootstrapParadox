@@ -19,8 +19,8 @@ func DeleteItem(product *inventory.Product) gin.HandlerFunc {
 		}
 		defer db.Close()
 
-		log.Println("name--> ", c.Param("name"))
-		db.Where("Name = ?", c.Param("name")).Find(&product)
+		log.Println("itemName--> ", c.Param("itemName"))
+		db.Where("itemName = ?", c.Param("itemName")).Find(&product)
 		db.Delete(&product)
 
 		c.JSON(http.StatusOK, map[string]string{
