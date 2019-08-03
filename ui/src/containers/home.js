@@ -1,19 +1,30 @@
-import React from 'react';
+import React,{useState} from 'react';
 
-import { Layout, Menu, Icon,Upload, message, Button } from 'antd';
-
+import { Layout, Menu, Icon,Upload, message, Button,Input } from 'antd';
+ const {Search}=Input;
 const { Header, Content, Footer, Sider } = Layout;
 
 function Home (){
+  const [state, setstate] = useState([]);
+ const search=async value=>{
+     if(value.length>3){
+      let res=  await fetch('url',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify({})})
+        let reques=await res.json();
+         
+     }
+  }
+   
+
+
     const props = {
         name: 'file',
         action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
         headers: {
-          authorization: 'authorization-text',
+          'Content-Type': 'multipart/form-data'
         },
         onChange(info) {
           if (info.file.status !== 'uploading') {
-            console.log(info.file, info.fileList);
+           // console.log(info.file, info.fileList);
           }
           if (info.file.status === 'done') {
             message.success(`${info.file.name} file uploaded successfully`);
@@ -28,10 +39,8 @@ function Home (){
             breakpoint="lg"
             collapsedWidth="0"
             onBreakpoint={broken => {
-                console.log(broken);
             }}
             onCollapse={(collapsed, type) => {
-                console.log(collapsed, type);
             }}
             >
             <div className="logo" style={{marginTop:60}} />
@@ -48,14 +57,19 @@ function Home (){
             </Sider>
             <Layout>
             <Header style={{ background: '#fff', padding: 0 }} />
+            <div style={{width:'60%',justifyContent:'center',alignItems:'center',alignSelf:'center',marginTop:16}}>
+              <Search placeholder="input search text" onSearch={search}  size="large" enterButton />
+            </div>
+           
             <Content style={{ margin: '24px 16px 0',width:'100%',backgroundColor:'#fff' }}>
+           
                 <div style={{position:'relative'}}>
 
-                h3
-                <div style={{position:'absolute',top:-30,right:20}}>
+                
+                <div style={{position:'absolute',top:-60,right:30}}>
                     <Upload {...props}>
                             <Button type="primary">
-                            <Icon type="upload" /> Click to Upload
+                            <Icon type="upload" /> Upload Here!
                             </Button>
                     </Upload>
                 </div>

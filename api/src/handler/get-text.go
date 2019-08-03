@@ -27,7 +27,7 @@ func GetTheText() gin.HandlerFunc {
 		defer client.Close()
 
 		// Sets the name of the image file to annotate.
-		filename := "/home/paul/Documents/github/bootstrapParadox/api/src/testdata/bill5.jpeg"
+		filename := "/home/suhail/Downloads/bootstrapParadox/api/src/testdata/bill5.jpeg"
 
 		file, err := os.Open(filename)
 		if err != nil {
@@ -44,8 +44,11 @@ func GetTheText() gin.HandlerFunc {
 		if err != nil {
 			log.Fatalf("Failed to detect labels: %v", err)
 		}
+		
 
-		fmt.Println("Labels:")
+		
+
+		fmt.Println("Labels:",labels);
 		for _, label := range labels {
 			fmt.Println(label.Description)
 			result = append(result, label.Description)
