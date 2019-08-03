@@ -6,6 +6,7 @@ require (
 	cloud.google.com/go v0.43.0
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/gin-gonic/gin v1.4.0
+	github.com/go-pg/pg/v9 v9.0.0-beta.1
 	github.com/google/pprof v0.0.0-20190723021845-34ac40c74b70 // indirect
 	github.com/hashicorp/golang-lru v0.5.3 // indirect
 	github.com/jinzhu/gorm v1.9.10

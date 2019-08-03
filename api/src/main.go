@@ -12,11 +12,10 @@ func main() {
 	product := inventory.NewInstance()
 	router := gin.Default()
 
-	router.GET("/ocr", handler.GetTheText())
+	router.GET("/ocr", handler.GetTheText(product))
 	router.GET("/items", handler.GetItems())
-	router.GET("/item/:name", handler.GetItem(product))
-	router.POST("/item", handler.PostItems(product))
-	router.DELETE("/item/:name", handler.DeleteItem(product))
+	router.GET("/item/:itemName", handler.GetItem(product))
+	router.DELETE("/item/:itemName", handler.DeleteItem(product))
 
 	router.Run() // listen and serve on 0.0.0.0:8080
 }
