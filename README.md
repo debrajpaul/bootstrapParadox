@@ -6,8 +6,8 @@ What is this repository for?
 
     Web service interface.
 
-    Version:- goWebService.1.0
-    Git clone :- https://github.com/debrajpaul/chatapp.git
+    Version:- bootstrapParadox.1.0
+    Git clone :- https://github.com/debrajpaul/bootstrapParadox.git
 
 How do I get set up?
 
